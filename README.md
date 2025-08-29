@@ -1,3 +1,3 @@
 # python
 
-Aqui você encontrará códigos em python feitos em sala de aula
+Aqui você encontrará códigos de python feitos em sala de aula

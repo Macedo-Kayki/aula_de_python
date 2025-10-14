@@ -57,6 +57,7 @@ if (opc == 1):
     exbList(lista)
     listar()
 elif opc == 2:
-    dictionary
+    dictionary()
 else:
+
     print("insira um valor válido")

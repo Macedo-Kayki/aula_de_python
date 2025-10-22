@@ -1,34 +1,36 @@
-produtos = {}
-
 class Produto:
     def __init__(self):
-        print("Seja bem-vindo(a) ao sistema NextStore\nPara prosseguir, selecione a ação desejada abaixo:")
+        self.produtos = {}
         
+    def boas_vindas(self):
+         print("Seja bem-vindo(a) ao sistema NextStore\nPara prosseguir, selecione a ação desejada abaixo:")
+    
     def cadastro(self):
         self.nome = input("Digite o nome do produto: ")
         self.preco = float(input("Digite o preço do produto: "))
         self.estoque = int(input("Digite a quantidade de estoque do produto: "))
         
-        novo_id = max(produtos.keys(), default=0) + 1
-        produtos[novo_id] = {
+        novo_id = max(self.produtos.keys(), default=0) + 1
+        self.produtos[novo_id] = {
             "nome": self.nome,
             "preco": self.preco,
             "estoque": self.estoque
         }
     
     def repor(self, id):
-        if id in produtos:
-            product = produtos[id]
+        if id in self.produtos:
+            product = self.produtos[id]
             print(f"Estoque atual: {self.estoque}")
             self.estoque = int(input("Digite o novo estoque do produto: "))
             product['estoque'] = self.estoque
     
     def listar(self):
-        for id, dados in produtos.items():
+        for id, dados in self.produtos.items():
             print("\n"+"="*20+f"\nID: {id}\n"+"="*20+f"\nProduto: {dados['nome']}\n"+"="*20+f"\nPreço: {dados['preco']}\n"+"="*20+f"\nEstoque: {dados['estoque']}\n"+"="*20)
 
 produto = Produto()
 while True:
+    produto.boas_vindas()
     loja = input("\n"+"="*20+"\nDigite 'Cadastrar' para cadastrar um novo produto\n"+"="*20+"="*20+"\nDigite 'Estoque' para repor o estoque de um produto\n"+"="*20+"\n"+"Digite 'Listar' para listar o estoque de produtos\n"+"="*20+"\n"+"Digite 'Sair' para sair do sistema\n"+"="*20+"\n")
         
     if loja.lower() == "cadastrar":

@@ -116,7 +116,7 @@ def light():
             print("Encerrando o sistema de conta de luz:")
             break
 
-        faixa_kwh = obter_faixa_kwh()
+        faixa_kwh = obter_kwh()
         valor = calcular_preco(tipo_instalacao, faixa_kwh)
         print(f"O valor a pagar é: R$ {valor:.2f}")
 
